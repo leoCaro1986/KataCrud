@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000/")
 public class TodoController {
 
     @Autowired
@@ -33,6 +34,7 @@ public class TodoController {
     public void delete(@PathVariable("id") long id){
         services.delete(id);
     }
+
     @GetMapping(value = "api/{id}/todo")
     public Todo get(@PathVariable("id") long id){
         return services.get(id);
